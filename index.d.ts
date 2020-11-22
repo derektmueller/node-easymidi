@@ -48,10 +48,14 @@ export interface Select {
   song: number;
 }
 
+interface InputParams {
+  deltaTime: number;
+}
+
 export declare class Input extends EventEmitter {
   constructor(name: string, virtual?: boolean);
   name: string;
-  on(evt: "noteon" | "noteoff", handler: (param: Note) => void): this;
+  on(evt: "noteon" | "noteoff", handler: (param: Note & InputParams) => void): this;
   on(evt: "poly aftertouch", handler: (param: PolyAfterTouch) => void): this;
   on(evt: "cc", handler: (param: ControlChange) => void): this;
   on(evt: "program", handler: (param: Program) => void): this;
@@ -60,11 +64,11 @@ export declare class Input extends EventEmitter {
   on(evt: "position", handler: (param: Position) => void): this;
   on(evt: "mtc", handler: (param: Mtc) => void): this;
   on(evt: "select", handler: (param: Select) => void): this;
-  on(evt: "clock", handler: () => void): this;
+  on(evt: "clock", handler: (param: InputParams) => void): this;
   on(evt: "start", handler: () => void): this;
   on(evt: "continue", handler: () => void): this;
   on(evt: "stop", handler: () => void): this;
-  on(evt: "activesense", handler: () => void): this;
+  on(evt: "activesense", handler: (param: InputParams) => void): this;
   on(evt: "reset", handler: () => void): this;
   close();
 }

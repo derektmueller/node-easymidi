@@ -85,6 +85,7 @@ class Input extends EventEmitter {
           this._pendingSysex = true;
         }
         else {
+          data.msg.deltaTime = deltaTime;
           data.msg._type = data.type; // easy access to message type
           this.emit(data.type, data.msg);
           // also emit "message" event, to allow easy monitoring of all messages
