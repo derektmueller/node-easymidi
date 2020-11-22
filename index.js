@@ -285,6 +285,7 @@ const getInputs = () => {
     inputs.push(input.getPortName(i));
   }
   input.closePort();
+  input.release();
   return inputs;
 }
 
