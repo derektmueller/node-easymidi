@@ -70,6 +70,7 @@ export declare class Input extends EventEmitter {
   on(evt: "stop", handler: () => void): this;
   on(evt: "activesense", handler: (param: InputParams) => void): this;
   on(evt: "reset", handler: () => void): this;
+  off(evt: "noteon" | "noteoff", handler: (param: Note & InputParams) => void): this;
   close();
 }
 
