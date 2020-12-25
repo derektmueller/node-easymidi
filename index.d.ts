@@ -71,7 +71,7 @@ export declare class Input extends EventEmitter {
   on(evt: "activesense", handler: (param: InputParams) => void): this;
   on(evt: "reset", handler: () => void): this;
   off(evt: "noteon" | "noteoff", handler: (param: Note & InputParams) => void): this;
-  close();
+  close(): void;
 }
 
 export declare class Output {
@@ -92,7 +92,7 @@ export declare class Output {
   send(evt: "stop"): void;
   send(evt: "activesense"): void;
   send(evt: "reset"): void;
-  close();
+  close(): void;
 }
 
 export declare function getInputs(): string[];
